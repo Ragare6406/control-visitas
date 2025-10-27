@@ -41,7 +41,7 @@ public class VisitaService {
         Visita visita = cliente.getVisita().stream()
                 .filter(v -> v.getId().equals(visitaId))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Visita no encontrada con fecha " + visitaId));
+                .orElseThrow(() -> new RuntimeException("Visita no encontrada con id " + visitaId));
         cliente.getVisita().remove(visita);
         clienteRepo.save(cliente);
     }
@@ -56,4 +56,22 @@ public class VisitaService {
         cliente.getVisita().remove(visita);
         clienteRepo.save(cliente);
     }
+
+    public Visita updateVisita(Long id, Visita nvaVisita) {
+        return visitaRepo.findById(id)
+                .map(visita -> {
+//                    if (visita.getFecha() != null) visita.setFecha(nvaVisita.getFecha());
+//                    if (visita.getHora_llegada()!=null) visita.setHora_llegada(nvaVisita.getHora_llegada());
+//                    if (visita.getHora_salida()!=null) visita.setHora_salida(nvaVisita.getHora_salida());
+//                    if (visita.getObservaciones()!=null) visita.setObservaciones(nvaVisita.getObservaciones());
+                    if (nvaVisita.getFecha() != null) visita.setFecha(nvaVisita.getFecha());
+                    if (nvaVisita.getHora_llegada() != null) visita.setHora_llegada(nvaVisita.getHora_llegada());
+                    if (nvaVisita.getHora_salida() != null) visita.setHora_salida(nvaVisita.getHora_salida());
+                    if (nvaVisita.getObservaciones() != null) visita.setObservaciones(nvaVisita.getObservaciones());
+                    return visitaRepo.save(visita);
+                })
+                .orElseThrow(()-> new RuntimeException("Visita no encontrado con id" + id));
+    }
+
+
 }

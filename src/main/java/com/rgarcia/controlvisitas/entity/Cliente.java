@@ -6,9 +6,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Data
 @Entity
@@ -37,7 +36,7 @@ public class Cliente {
     //Relación con "producto"
     @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
-    private List<ProductoSerie> productoSerie = new ArrayList<>();
+    private List<Serie> serie = new ArrayList<>();
 
     //Relacion con "visita"
     @JsonIgnore
@@ -46,24 +45,24 @@ public class Cliente {
 
 
 
-    public Long getId() {return id;}
-    public void setId(Long id) {this.id = id;}
-    public @NotBlank String getEmpresa() {return empresa;}
-    public void setEmpresa(@NotBlank String empresa) {this.empresa = empresa;}
-    public @NotBlank String getDireccion() {return direccion;}
-    public void setDireccion(@NotBlank String direccion) {this.direccion = direccion;}
-    public @NotBlank String getMunicipio() {return municipio;}
-    public void setMunicipio(@NotBlank String municipio) {this.municipio = municipio;}
-    public @Email String getEmail() {return email;}
-    public void setEmail(@Email String email) {this.email = email;}
-    public String getContacto() {return contacto;}
-    public void setContacto(String contacto) {this.contacto = contacto;}
-    public String getTelefono() {return telefono;}
-    public void setTelefono(String telefono) {this.telefono = telefono;}
-    public List<ProductoSerie> getProductoSerie() {return productoSerie;}
-    public void setProductoSerie(List<ProductoSerie> productoSerie) {this.productoSerie = productoSerie;}
-    public List<Visita> getVisita() {return visita;}
-
-    public void setVisita(List<Visita> visita) {this.visita = visita;}
+//    public Long getId() {return id;}
+//    public void setId(Long id) {this.id = id;}
+//    public @NotBlank String getEmpresa() {return empresa;}
+//    public void setEmpresa(@NotBlank String empresa) {this.empresa = empresa;}
+//    public @NotBlank String getDireccion() {return direccion;}
+//    public void setDireccion(@NotBlank String direccion) {this.direccion = direccion;}
+//    public @NotBlank String getMunicipio() {return municipio;}
+//    public void setMunicipio(@NotBlank String municipio) {this.municipio = municipio;}
+//    public @Email String getEmail() {return email;}
+//    public void setEmail(@Email String email) {this.email = email;}
+//    public String getContacto() {return contacto;}
+//    public void setContacto(String contacto) {this.contacto = contacto;}
+//    public String getTelefono() {return telefono;}
+//    public void setTelefono(String telefono) {this.telefono = telefono;}
+//    public List<ProductoSerie> getProductoSerie() {return productoSerie;}
+//    public void setProductoSerie(List<ProductoSerie> productoSerie) {this.productoSerie = productoSerie;}
+//    public List<Visita> getVisita() {return visita;}
+//
+//    public void setVisita(List<Visita> visita) {this.visita = visita;}
 
 }

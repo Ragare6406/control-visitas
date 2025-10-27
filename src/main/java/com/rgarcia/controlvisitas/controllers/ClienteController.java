@@ -1,8 +1,10 @@
 package com.rgarcia.controlvisitas.controllers;
 
 import com.rgarcia.controlvisitas.entity.Cliente;
+import com.rgarcia.controlvisitas.entity.Serie;
 import com.rgarcia.controlvisitas.entity.Visita;
 import com.rgarcia.controlvisitas.service.ClienteService;
+import com.rgarcia.controlvisitas.service.SerieService;
 import com.rgarcia.controlvisitas.service.VisitaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class ClienteController {
 
     @Autowired
     private VisitaService visitaService;
+    @Autowired
+    private SerieService serieService;
 
     /**
      * Crear un cliente nuevo
@@ -59,28 +63,28 @@ public class ClienteController {
         }
     }
 
-        /**
-         * Crear una visita en un cliente
-         */
-        @PostMapping("/{id}/visita")
-        public ResponseEntity<Visita> agregarVisita(
-                @PathVariable Long id,
-                @RequestBody Visita visita) {
-            return ResponseEntity.ok(visitaService.crearVisita(id, visita));
-        }
+    /**
+     * Crear una visita en un cliente
+     */
+    @PostMapping("/{id}/visita")
+    public ResponseEntity<Visita> agregarVisita(
+            @PathVariable Long id,
+            @RequestBody Visita visita) {
+        return ResponseEntity.ok(visitaService.crearVisita(id, visita));
+    }
 
-        /**
-         * Borrar una visita de un cliente
-         */
-        @DeleteMapping("/{id}/visita/{visitaId}")
-        public ResponseEntity<Void> borrarVisitaACliente(@PathVariable Long id, @PathVariable Long visitaId) {
-            try {
-                visitaService.borrarVisitaCliente(id, visitaId);
-                return ResponseEntity.noContent().build(); // 204 No Content
-            } catch (RuntimeException e) {
-                return ResponseEntity.notFound().build(); // 404 Not Found
-            }
+    /**
+     * Borrar una visita de un cliente
+     */
+    @DeleteMapping("/{id}/visita/{visitaId}")
+    public ResponseEntity<Void> borrarVisitaACliente(@PathVariable Long id, @PathVariable Long visitaId) {
+        try {
+            visitaService.borrarVisitaCliente(id, visitaId);
+            return ResponseEntity.noContent().build(); // 204 No Content
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
         }
+    }
 
     /**
      * Borrar una visita de un cliente por fecha
@@ -94,5 +98,28 @@ public class ClienteController {
             return ResponseEntity.notFound().build(); // 404 Not Found
         }
     }
+
+    /**
+     * Modificar un cliente
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<Cliente> modificarCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
+        try {
+            return ResponseEntity.ok(clienteService.updateCliente(id, cliente));
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+
     }
+
+    /**
+     * Crear una serie en un cliente
+     */
+    @PostMapping("/{clienteId}/serie/{serieId}")
+    public ResponseEntity<Serie> agregarSerie(
+            @PathVariable Long clienteId,
+            @PathVariable Long serieId) {
+        return ResponseEntity.ok(serieService.serieACliente(clienteId, serieId));
+    }
+}
 

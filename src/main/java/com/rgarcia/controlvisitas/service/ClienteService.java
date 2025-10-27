@@ -30,19 +30,27 @@ public class ClienteService {
         return clienteRepo.findAll();
     }
 
-//    public Visita agregarVisita(Long clienteId, Visita visita) {
-//        Cliente cliente = clienteRepo.findById(clienteId)
-//                .orElseThrow(() -> new RuntimeException("Cliente no encontrado con id " + clienteId));
-//        visita.setCliente(cliente);
-//        cliente.getVisita().add(visita);
-//        return visitaRepo.save(visita);
-//    }
 
     public void borrarCliente(Long clienteId) {
         Cliente cliente = clienteRepo.findById(clienteId)
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado con id " + clienteId));
         clienteRepo.delete(cliente);
     }
+
+    public Cliente updateCliente(Long clienteId, Cliente nvoCliente) {
+        return clienteRepo.findById(clienteId)
+                .map(cliente -> {
+                    if (cliente.getEmpresa() != null) cliente.setEmpresa(nvoCliente.getEmpresa());
+                    if (cliente.getDireccion()!=null) cliente.setDireccion(nvoCliente.getDireccion());
+                    if (cliente.getMunicipio()!=null) cliente.setMunicipio(nvoCliente.getMunicipio());
+                    if (cliente.getContacto()!=null) cliente.setContacto(nvoCliente.getContacto());
+                    if (cliente.getEmail()!=null) cliente.setEmail(nvoCliente.getEmail());
+                    if (cliente.getTelefono()!=null) cliente.setTelefono(nvoCliente.getTelefono());
+                    return clienteRepo.save(cliente);
+                })
+                .orElseThrow(()-> new RuntimeException("Cliente no encontrado con id" + clienteId));
+    }
+
 
 }
 

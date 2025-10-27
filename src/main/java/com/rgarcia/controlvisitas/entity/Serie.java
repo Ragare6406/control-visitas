@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 
 @Table(name = "serie")
-public class ProductoSerie {
+public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

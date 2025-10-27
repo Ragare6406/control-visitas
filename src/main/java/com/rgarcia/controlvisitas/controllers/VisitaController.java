@@ -1,8 +1,8 @@
 package com.rgarcia.controlvisitas.controllers;
 
+
 import com.rgarcia.controlvisitas.entity.Cliente;
 import com.rgarcia.controlvisitas.entity.Visita;
-import com.rgarcia.controlvisitas.service.ClienteService;
 import com.rgarcia.controlvisitas.service.VisitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +24,19 @@ public class VisitaController {
     @GetMapping("/{fecha}")
     public List<Visita> listaVisitas(@PathVariable LocalDate fecha) {
         return visitaService.buscarVisitas(fecha);
+    }
+
+    /**
+     * Modificar una visite
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<Visita> modificarVisita(@PathVariable Long id, @RequestBody Visita visita) {
+        try {
+            return ResponseEntity.ok(visitaService.updateVisita(id, visita));
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
 }

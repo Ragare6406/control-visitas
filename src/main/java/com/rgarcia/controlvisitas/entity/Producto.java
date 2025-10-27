@@ -1,14 +1,10 @@
 package com.rgarcia.controlvisitas.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -27,6 +23,6 @@ public class Producto {
 
     @JsonIgnore
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProductoSerie> productoSeries = new ArrayList<>();
+    private List<Serie> serie = new ArrayList<>();
 
 }

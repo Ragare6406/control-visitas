@@ -39,44 +39,44 @@ public class Visita {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    public Cliente getCliente() {return cliente;}
-    public void setCliente(Cliente cliente) {this.cliente = cliente;}
-
-    public Long getId() {return id;}
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha= fecha;
-    }
-
-    public LocalTime getHora_llegada() {
-        return hora_llegada;
-    }
-
-    public void setHora_llegada(LocalTime hora_llegada) {
-        this.hora_llegada = hora_llegada;
-    }
-
-    public LocalTime getHora_salida() {
-        return hora_salida;
-    }
-
-    public void setHora_salida(LocalTime hora_salida) {
-        this.hora_salida = hora_salida;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
+//    public Cliente getCliente() {return cliente;}
+//    public void setCliente(Cliente cliente) {this.cliente = cliente;}
+//
+//    public Long getId() {return id;}
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public LocalDate getFecha() {
+//        return fecha;
+//    }
+//
+//    public void setFecha(LocalDate fecha) {
+//        this.fecha= fecha;
+//    }
+//
+//    public LocalTime getHora_llegada() {
+//        return hora_llegada;
+//    }
+//
+//    public void setHora_llegada(LocalTime hora_llegada) {
+//        this.hora_llegada = hora_llegada;
+//    }
+//
+//    public LocalTime getHora_salida() {
+//        return hora_salida;
+//    }
+//
+//    public void setHora_salida(LocalTime hora_salida) {
+//        this.hora_salida = hora_salida;
+//    }
+//
+//    public String getObservaciones() {
+//        return observaciones;
+//    }
+//
+//    public void setObservaciones(String observaciones) {
+//        this.observaciones = observaciones;
+//    }
 }
