@@ -2,7 +2,6 @@ package com.rgarcia.controlvisitas.controllers;
 
 import com.rgarcia.controlvisitas.entity.Producto;
 import com.rgarcia.controlvisitas.entity.Serie;
-import com.rgarcia.controlvisitas.entity.Visita;
 import com.rgarcia.controlvisitas.service.ProductoService;
 import com.rgarcia.controlvisitas.service.SerieService;
 import jakarta.validation.Valid;

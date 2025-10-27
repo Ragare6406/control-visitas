@@ -3,7 +3,6 @@ package com.rgarcia.controlvisitas.service;
 import com.rgarcia.controlvisitas.entity.Cliente;
 import com.rgarcia.controlvisitas.entity.Producto;
 import com.rgarcia.controlvisitas.entity.Serie;
-import com.rgarcia.controlvisitas.entity.Visita;
 import com.rgarcia.controlvisitas.repository.ClienteRepository;
 import com.rgarcia.controlvisitas.repository.ProductoRepository;
 import com.rgarcia.controlvisitas.repository.SerieRepository;

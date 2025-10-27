@@ -1,7 +1,6 @@
 package com.rgarcia.controlvisitas.controllers;
 
 
-import com.rgarcia.controlvisitas.entity.Cliente;
 import com.rgarcia.controlvisitas.entity.Visita;
 import com.rgarcia.controlvisitas.service.VisitaService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,7 @@
 package com.rgarcia.controlvisitas.controllers;
 
-import com.rgarcia.controlvisitas.entity.Producto;
 import com.rgarcia.controlvisitas.entity.Serie;
 import com.rgarcia.controlvisitas.service.SerieService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
